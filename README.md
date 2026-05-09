@@ -1,2 +1,5 @@
-# relation-card-wall
-Vue3+TS+Vite+SVG 开发的纯前端关系卡片墙工具，支持卡片拖拽、关系连线、画布操作、束线整理，数据本地存储可导出。
+# Vue 3 + TypeScript + Vite
+
+This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+
+Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
