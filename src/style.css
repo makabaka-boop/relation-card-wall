@@ -1,0 +1,258 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  overflow: hidden;
+  background-color: #f3f4f6;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.toolbar {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  align-items: center;
+}
+
+.toolbar button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #f3f4f6;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.toolbar button:hover {
+  background: #e5e7eb;
+}
+
+.toolbar button.active {
+  background: #6366F1;
+  color: white;
+}
+
+.toolbar input {
+  padding: 8px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 13px;
+  outline: none;
+  width: 180px;
+}
+
+.toolbar input:focus {
+  border-color: #6366F1;
+}
+
+.sidebar {
+  position: fixed;
+  top: 80px;
+  right: 16px;
+  width: 260px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  padding: 16px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.sidebar h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #374151;
+}
+
+.sidebar .section {
+  margin-bottom: 20px;
+}
+
+.sidebar .tag-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+
+.sidebar .tag-item:hover {
+  background: #f3f4f6;
+}
+
+.sidebar .tag-item.selected {
+  background: #EEF2FF;
+}
+
+.sidebar .tag-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.sidebar .tag-text {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sidebar .color-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.sidebar .color-option {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.2s;
+}
+
+.sidebar .color-option:hover {
+  transform: scale(1.1);
+}
+
+.sidebar .color-option.selected {
+  border-color: #374151;
+}
+
+.zoom-controls {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 1000;
+}
+
+.zoom-controls button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: background 0.2s;
+}
+
+.zoom-controls button:hover {
+  background: #f3f4f6;
+}
+
+.zoom-controls .zoom-level {
+  text-align: center;
+  font-size: 12px;
+  color: #6B7280;
+  padding: 4px 0;
+}
+
+.relation-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 24px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  z-index: 2000;
+  min-width: 320px;
+}
+
+.relation-modal h3 {
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.relation-modal .relation-types {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.relation-modal .relation-type-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+}
+
+.relation-modal .relation-type-btn:hover {
+  border-color: #6366F1;
+  background: #FAFAFF;
+}
+
+.relation-modal .relation-type-btn .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.relation-modal .relation-type-btn .label {
+  font-weight: 500;
+}
+
+.relation-modal .cancel {
+  margin-top: 12px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #f3f4f6;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.canvas-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.canvas-container.grabbing {
+  cursor: grabbing;
+}
+
+.canvas-svg {
+  display: block;
+}
